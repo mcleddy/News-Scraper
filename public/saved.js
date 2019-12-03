@@ -11,44 +11,44 @@ $(function(){
         })
     }));
 
-    ///notes button
-    $('.notesButton').on('click', function(event){
+    ///comments button
+    $('.commentsButton').on('click', function(event){
         event.preventDefault();
         let articleId=$(this).data('id');
-            $('.noteModalBody').empty();
-            $('.noteModalTitle').empty();
+            $('.commentModalBody').empty();
+            $('.commentModalTitle').empty();
 
             //update modal content
-            $.ajax("/api/notes/"+articleId, {
+            $.ajax("/api/comments/"+articleId, {
                 type: "GET"
             }).then(function(result){
-                $('.noteModalTitle').append(`<h2>${result.title}</h2>`);
-                $('.saveNoteButton').attr("data-id", result._id)
+                $('.commentModalTitle').append(`<h2>${result.title}</h2>`);
+                $('.savecommentButton').attr("data-id", result._id)
                 console.log("ajax call:"+result);
 
                 let newCard=$(`
                 <div class="card">
                 <div class="card-header">
-                    ${result.note.title}
+                    ${result.comment.title}
                 </div>
-                <div class="card-body noteCardBody">
-                    <p class="card-text">${result.note.body}</p>
-                    <button type="button" class="btn btn-danger deleteNoteButton" data-id="">Delete Note</button> 
+                <div class="card-body commentCardBody">
+                    <p class="card-text">${result.comment.body}</p>
+                    <button type="button" class="btn btn-danger deletecommentButton" data-id="">Delete comment</button> 
                 </div>
                 </div>
                 `);
                 console.log("new card"+newCard);
-                $('.noteModalBody').append(newCard);
+                $('.commentModalBody').append(newCard);
             }).then(
-                $('#noteModal').modal('show')
+                $('#commentModal').modal('show')
             )
     });
-    //save a note
-    $('.saveNoteButton').on("click", function(event){
+    //save a comment
+    $('.savecommentButton').on("click", function(event){
         console.lof($(this));
         let articleId=$(this).data('id');
         console.log("article id" +articleId);
-        $.ajax('/api/create/notes/' +articleId, {
+        $.ajax('/api/create/comments/' +articleId, {
             type:"POST",
             data:{
                 title: $('#titleInput').val(),
@@ -56,8 +56,8 @@ $(function(){
                 _articleId: articleId
             }
         }).then(function(result){
-            let noteAdded=$('<p class="noteAlert">Your Note is saved</p>');
-            $('.alertDiv').append(noteAdded);
+            let commentAdded=$('<p class="commentAlert">Your comment is saved</p>');
+            $('.alertDiv').append(commentAdded);
             $('#titleInput').val(' ');
             $('#bodyInput').val(' ');
         })

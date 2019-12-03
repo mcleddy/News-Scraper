@@ -64,7 +64,7 @@ module.exports = function (app) {
     //route for getting a specific article by id
     app.get("/api/articles/:id", function(req, res){
         db.Article.findOne({_id: req.params.id})
-        .populate("note")
+        .populate("comment")
         .then(function(dbArticle){
             res.json(dbArticle);
         })
@@ -75,9 +75,9 @@ module.exports = function (app) {
 
     //route for saving and updating comment
     app.post("/api/articles/:id", function(req, res){
-        db.Note.create(req.body)
-        .then(function(dbNote){
-            return db.Article.findOneAndUpdate({_id: req.params.id}, {note: dbNote._id}, {new: true});
+        db.comment.create(req.body)
+        .then(function(dbcomment){
+            return db.Article.findOneAndUpdate({_id: req.params.id}, {comment: dbcomment._id}, {new: true});
         })
         .then(function(dbArticle){
             res,json(dbArticle);
@@ -116,12 +116,12 @@ module.exports = function (app) {
     });
 
     //route to find a comment
-    app.get("/api/notes/:id", (req, res)=>{
+    app.get("/api/comments/:id", (req, res)=>{
         let articleId=req.params.id;
         db.Article.findOne({
             _id: articleId
         })
-        .populate('note')
+        .populate('comment')
         .then((result)=> {
             console.log("api result" +result );
             res.json(result)
@@ -129,13 +129,13 @@ module.exports = function (app) {
     });
 
     //route for making new comments
-    app.post("/api/create/notes/:id", (req, res)=> {
-        db.Note.create(req.body)
-        .then(function(dbNote){
+    app.post("/api/create/comments/:id", (req, res)=> {
+        db.comment.create(req.body)
+        .then(function(dbcomment){
             return db.Article.findOneAndUpdate({
                 _id: req.params.id
             }, {
-                note: dbNote._id
+                comment: dbcomment._id
             }, {
                 new: true
             });

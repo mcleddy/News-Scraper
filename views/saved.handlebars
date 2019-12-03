@@ -43,7 +43,7 @@
 
                             <div class="col-2 buttonColumn">
                                 <button type="button" class="btn btn-primary deleteArticleButton" data-id={{id}}>Delete Article</button>
-                                <button type="button" class="btn btn-primary notesButton" data-id={{id}}>Notes</button>
+                                <button type="button" class="btn btn-primary commentsButton" data-id={{id}}>comments</button>
                             </div>
                         </div>
                     </div>
@@ -75,31 +75,31 @@
   </div>
 </div>
 
-<div class="modal fade" id="noteModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Article Notes</h5>
+        <h5 class="modal-title">Article comments</h5>
       </div>
-      <div class="modal-body noteModalTitle">
-      </div>
-
-      <div class="modal-body noteModalBody">
-          {{!-- <ul id='noteList'></ul> --}}
+      <div class="modal-body commentModalTitle">
       </div>
 
-      <div class="modal-body noteModalForm">
+      <div class="modal-body commentModalBody">
+          {{!-- <ul id='commentList'></ul> --}}
+      </div>
+
+      <div class="modal-body commentModalForm">
           <form>
               <div class="form-group">
-                  <label for="titleInput">Note Title</label>
+                  <label for="titleInput">comment Title</label>
                   <input id="titleInput" name="title">
               </div>
               <div class="form-group">
-                  <label for="bodyInput">Note Text</label>
+                  <label for="bodyInput">comment Text</label>
                   <textarea id="bodyInput" name="body"></textarea>
               </div>
           </form>
-          <button class="btn-primary saveNoteButton">Save Note</button>
+          <button class="btn-primary savecommentButton">Save comment</button>
           <div class="alertDiv"></div>
 
       </div>
@@ -109,3 +109,12 @@
     </div>
   </div>
 </div>
+<style>
+  .navbar-brand{
+  font-size: xx-large;
+margin-left: 40%;
+}
+.nav-item{
+  margin-left: 35px;
+}
+</style>
