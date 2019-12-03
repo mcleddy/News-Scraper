@@ -9,7 +9,7 @@ $(function(){
         }).then(function(){
             $('#articleDeleteModal').modal('show');
         })
-    });
+    }));
 
     ///notes button
     $('.notesButton').on('click', function(event){

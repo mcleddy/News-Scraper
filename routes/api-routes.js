@@ -7,7 +7,7 @@ module.exports = function (app) {
 
     //post route
     app.post("/api/scrape", function (req, res) {
-        axios.get("https://www.rockpapershotgun.com/").then(function (res) {
+        axios.get("https://www.npr.org/sections/news/").then(function (response) {
             var $ = cheerio.load(response.data);
             //get article elements
             $("article.item").each(function (i, element) {
@@ -15,7 +15,7 @@ module.exports = function (app) {
                 let summary = $(element).find('.item-info').find('.teaser').find('a').text();
                 let link = $(element).find('.item-info').find('.title').children().attr("href");
                 let photo = $(element).find('.item-image').find('.imagewrap').find('img').attr("src");
-                let data = $(element).find('.item-info').find('.teaser').find('a').find('time').attr("datetime");
+                let date = $(element).find('.item-info').find('.teaser').find('a').find('time').attr("datetime");
 
                 let result = {
                     title: title,
