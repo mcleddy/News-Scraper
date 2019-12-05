@@ -43,7 +43,8 @@
 
                             <div class="col-2 buttonColumn">
                                 <button type="button" class="btn btn-primary deleteArticleButton" data-id={{id}}>Delete Article</button>
-                                <button type="button" class="btn btn-primary commentsButton" data-id={{id}}>comments</button>
+                                
+                              <button type="button" class="btn btn-primary notesButton" data-id={{id}}>Notes</button>
                             </div>
                         </div>
                     </div>
@@ -75,31 +76,31 @@
   </div>
 </div>
 
-<div class="modal fade" id="commentModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Article comments</h5>
+        <h5 class="modal-title">Article Notes</h5>
       </div>
-      <div class="modal-body commentModalTitle">
-      </div>
-
-      <div class="modal-body commentModalBody">
-          {{!-- <ul id='commentList'></ul> --}}
+      <div class="modal-body noteModalTitle">
       </div>
 
-      <div class="modal-body commentModalForm">
+      <div class="modal-body noteModalBody">
+          {{!-- {{ <ul id='notetList'></ul>}} --}}
+      </div>
+
+      <div class="modal-body noteModalForm">
           <form>
               <div class="form-group">
-                  <label for="titleInput">comment Title</label>
+                  <label for="titleInput">Note Title</label>
                   <input id="titleInput" name="title">
               </div>
               <div class="form-group">
-                  <label for="bodyInput">comment Text</label>
+                  <label for="bodyInput">Note Text</label>
                   <textarea id="bodyInput" name="body"></textarea>
               </div>
           </form>
-          <button class="btn-primary savecommentButton">Save comment</button>
+          <button class="btn saveNoteButton">Save Note</button>
           <div class="alertDiv"></div>
 
       </div>
@@ -114,7 +115,21 @@
   font-size: xx-large;
 margin-left: 40%;
 }
+.btn{
+  background-color: black;
+  color: white;
+  margin: 8px;
+}
 .nav-item{
   margin-left: 35px;
+}
+.headlineLink{
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color: black;
+font-weight: bolder;
+font-size: x-large;
+}
+.articleColumn{
+  margin-bottom: 50px;
 }
 </style>

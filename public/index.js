@@ -58,7 +58,9 @@ $(function () {
     });
     //save article button
     $(".saveArticleButton").on("click", function(event){
-        $.ajax("/api/save/article/"+ articleId,{
+        event.preventDefault();
+        let articleId=$(this).data("id");
+        $.ajax("/api/save/article/"+ articleId, {
             type: "PUT"
         }).then(function(){
             $('#articleSavedModal').modal('show');

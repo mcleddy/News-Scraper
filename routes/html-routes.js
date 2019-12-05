@@ -19,7 +19,7 @@ module.exports=function (app){
                         link: found[i].link,
                         photo: found[i].photo,
                         saved: found[i].saved,
-                        comments: found[i].comments
+                        notes: found[i].notes
                     }
                     articleObject.articles.push(newObject);
                     if (i==(found.length -1)) {
@@ -51,11 +51,11 @@ module.exports=function (app){
                         link: found[i].link,
                         photo: found[i].photo,
                         saved: found[i].saved,
-                        comments: found[i].comments
+                        notes: found[i].notes
                     }
                     articleObject.articles.push(newObject);
                     if (i==(found.length -1)) {
-                        res.render("index", articleObject)
+                        res.render("saved", articleObject)
                     }
                 }
             }

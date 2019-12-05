@@ -4,10 +4,9 @@ var mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
-// Using the Schema constructor, create a new commentSchema object
-// This is similar to a Sequelize model
-var commentSchema = new Schema({
-  // The headline is the article associate with the comment
+// Using the Schema constructor, create a new noteSchema object
+var NoteSchema = new Schema({
+  // The headline is the article associate with the note
   _articleId: {
     type: Schema.Types.ObjectId,
     ref: "Article"
@@ -22,6 +21,6 @@ var commentSchema = new Schema({
     type: String
   }
 });
-var comment=mongoose.model("comment", commentSchema);
+var Note=mongoose.model("Note", NoteSchema);
 
-module.exports=comment;
+module.exports=Note;
