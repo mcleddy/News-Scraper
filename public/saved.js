@@ -56,9 +56,9 @@ $(function(){
                 _articleId: articleId
             }
         }).then(function(_result){
-            let noteAdded=$('<p class="noteAlert">Your note is saved</p>');
+            let noteAdded=$('<p class="noteAlert">Your note is saved</p>' + newCard.title+newCard.body);
             console.log(noteAdded);
-            $(".modalBody").append(noteAdded);
+            $(".modal-body").append(noteAdded);
             $('#titleInput').val('');
             $('#bodyInput').val('');
         })
