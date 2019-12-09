@@ -27,6 +27,7 @@ app.use(express.static("public"));
 //use mongo database
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
+    useMongoClient:true
 });
 
 
