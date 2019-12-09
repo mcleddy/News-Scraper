@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 
 var db = require("./models");
 
-var PORT = process.env.Port || 3000;
+var PORT = process.env.Port || 3001;
 
 //establish use of database
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoArticles4";
@@ -26,9 +26,7 @@ app.use(express.static("public"));
 
 //use mongo database
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-    useMongoClient:true
-});
+mongoose.connect(MONGODB_URI);
 
 
 require("./routes/index")(app)
