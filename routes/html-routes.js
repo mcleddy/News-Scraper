@@ -5,12 +5,11 @@ module.exports=function (app){
     app.get("/", function(req, res){
         var articleObject={}
 
-        articleObject["articles"]=[]
+        articleObject["articles"]=[ ]
         db.Article.find({$query: {saved: false}}).sort({date: -1})
         .then(function(found){
             if (found.length > 0){
                 for (let i=0; i < found.length; i++){
-                    console.log(found[i]);
 
                     newObject={
                         id: found[i]._id,

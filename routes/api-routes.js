@@ -123,7 +123,7 @@ module.exports = function (app) {
         })
         .populate('note')
         .then((result)=> {
-            console.log("api result" +result );
+            console.log(result );
             res.json(result)
         })
     });
