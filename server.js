@@ -10,7 +10,7 @@ var db = require("./models");
 var PORT = process.env.Port || 3001;
 
 //establish use of database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoArticles4";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoArticles";
 
 //initialize express and express-hanldebars
 var app = express();
